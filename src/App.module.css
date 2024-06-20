@@ -14,9 +14,9 @@
 	height: 90vh;
 	width: 30vw;
 	padding: 10%;
-	background: linear-gradient(to top, #5c46c5, var(--secondary-col), #5c46c5);
+	background: var(--form-back-col);
 	border-radius: 20px;
-	opacity: 0.4;
 	margin: 3% auto auto auto;
-	box-shadow: 0px 5px 10px 0px var(--primary-col);
+	box-shadow: 0px 5px 20px 0px var(--primary-col);
+	z-index: -1;
 }
