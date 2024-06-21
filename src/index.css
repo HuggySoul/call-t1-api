@@ -2,14 +2,14 @@
 
 /* Основные цвета */
 :root {
-	--primary-col: #000000;
-	--secondary-col: rgba(151, 131, 251, 0.4);
-	--attention-col: #e94d2a;
+	--primary-col: rgba(0, 0, 0, 0.4);
+	--secondary-col: #e94d2a;
+	/* --attention-col: #E94D2A; */
 	--text-col: #ffff;
 	--form-back-col: linear-gradient(
 		to top,
 		rgba(92, 69, 197, 0.4),
-		var(--secondary-col),
+		rgba(151, 131, 251, 0.4),
 		rgba(92, 69, 197, 0.4)
 	);
 }
@@ -48,17 +48,26 @@ main {
 	display: block;
 }
 
-h1,
 h2,
 h3,
 h4,
 h5,
-h6,
-p {
+h6 {
 	font-size: inherit;
 	font-weight: inherit;
 }
 
+h1 {
+	font-family: "Comfortaa";
+	font-size: 22px;
+	font-weight: 700;
+}
+
+p {
+	font-family: "Comfortaa";
+	font-size: 17px;
+	font-weight: 600;
+}
 ul,
 ul li {
 	list-style: none;

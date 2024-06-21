@@ -1,6 +1,62 @@
-.roleSelector {
+.roles {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 100%;
+}
+
+.roles_fieldset {
+	display: flex;
+	position: relative;
+	gap: 6px;
+	flex-direction: column;
+	width: 100%;
+	border: 1px solid var(--primary-col);
+	border-radius: 10px;
+	padding: 10px;
+}
+
+.roles_role {
+	position: relative;
+	display: flex;
+	gap: 20px;
+}
+
+.roles_roleCard {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex-direction: column;
+	border: 1px solid var(--primary-col);
+	border-radius: 10px;
+	cursor: pointer;
+	padding: 5px;
+}
+
+.roles_roleCard input[type="radio"] {
+	position: absolute;
+	top: -10px;
+	right: -10px;
+	width: 20px;
+	height: 20px;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.roles_roleImage {
+	position: absolute;
+	top: -15px;
+	right: -15px;
+	width: 27px;
+	height: 27px;
+	opacity: 0;
+}
+
+.roles_roleCard input[type="radio"]:checked + p + .roles_roleImage {
+	opacity: 100;
+}
+
+.roles_roleCard:hover {
+	scale: 1.0001;
 }
