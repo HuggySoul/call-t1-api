@@ -51,6 +51,7 @@
 	width: 27px;
 	height: 27px;
 	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
 }
 
 .roles_roleCard input[type="radio"]:checked + p + .roles_roleImage {
