@@ -2,7 +2,7 @@ import st from "./roleSelector.module.css";
 import { getRoles } from "../../api/getRoles";
 import { useEffect, useState } from "react";
 
-export const RoleSelector = () => {
+export const RoleSelector = ({ setRole }) => {
 	const [roles, setRoles] = useState([]);
 
 	useEffect(() => {
@@ -23,7 +23,13 @@ export const RoleSelector = () => {
 					<div key={id} className={st.roles_role}>
 						<label htmlFor={id}>
 							<div className={st.roles_roleCard}>
-								<input type="radio" id={id} name="role" value={role} />
+								<input
+									onChange={(e) => setRole(e, "setRole", "newRole")}
+									type="radio"
+									id={id}
+									name="role"
+									value={role}
+								/>
 								<p>{role}</p>
 								<img
 									src="./active-radio-btn.svg"
