@@ -1,18 +1,9 @@
-.roles {
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
-	flex-direction: column;
-	width: 100%;
-}
-
 .roles_fieldset {
 	display: flex;
 	position: relative;
 	gap: 6px;
 	flex-direction: column;
 	width: 100%;
-	border: 1px solid var(--primary-col);
 	border-radius: 10px;
 	padding: 10px;
 }

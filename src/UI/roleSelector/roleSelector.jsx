@@ -14,29 +14,27 @@ export const RoleSelector = () => {
 	}, []);
 
 	return (
-		<div className={st.roles}>
-			<fieldset className={st.roles_fieldset}>
-				<legend className={st.roles_legend}>
-					<h1>Выберете свою роль </h1>
-				</legend>
-				{roles.map((role, id) => {
-					return (
-						<div key={id} className={st.roles_role}>
-							<label htmlFor={id}>
-								<div className={st.roles_roleCard}>
-									<input type="radio" id={id} name="role" value={role} />
-									<p>{role}</p>
-									<img
-										src="./active-radio-btn.svg"
-										alt="role selected"
-										className={st.roles_roleImage}
-									/>
-								</div>
-							</label>
-						</div>
-					);
-				})}
-			</fieldset>
-		</div>
+		<fieldset className={st.roles_fieldset}>
+			<legend className={st.roles_legend}>
+				<h2>Выберете свою роль </h2>
+			</legend>
+			{roles.map((role, id) => {
+				return (
+					<div key={id} className={st.roles_role}>
+						<label htmlFor={id}>
+							<div className={st.roles_roleCard}>
+								<input type="radio" id={id} name="role" value={role} />
+								<p>{role}</p>
+								<img
+									src="./active-radio-btn.svg"
+									alt="role selected"
+									className={st.roles_roleImage}
+								/>
+							</div>
+						</label>
+					</div>
+				);
+			})}
+		</fieldset>
 	);
 };
