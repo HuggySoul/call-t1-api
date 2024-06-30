@@ -3,10 +3,10 @@ import { Registration } from "./UI/registration/registration";
 import { UserCode } from "./UI/userCode/userCode";
 function App() {
 	return (
-		<form className={st.form}>
+		<div className={st.form}>
 			<Registration />
 			<UserCode />
-		</form>
+		</div>
 	);
 }
 

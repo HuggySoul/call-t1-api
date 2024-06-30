@@ -32,6 +32,7 @@
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
+	gap: 10px;
 }
 
 .btn_submit {
@@ -42,4 +43,14 @@
 
 .btn_submit:hover {
 	scale: 1.0001;
+}
+
+.attentionTxt {
+	color: red;
+	font-size: 14px;
+}
+
+.success_img {
+	width: 40px;
+	height: 40px;
 }
