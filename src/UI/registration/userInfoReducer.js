@@ -1,4 +1,4 @@
-export const userReducer = (state, action) => {
+export const userInfoReducer = (state, action) => {
 	switch (action.type) {
 		case "setRole": {
 			return {
