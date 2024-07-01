@@ -2,7 +2,13 @@ import st from "./submitBtn.module.css";
 import { Loading } from "../loading/loading";
 import { useState } from "react";
 
-export const SubmitBtn = ({ callApi, returnCondition, postData, btnTxt }) => {
+export const SubmitBtn = ({
+	callApi,
+	returnCondition,
+	postData,
+	btnTxt,
+	setPostAnswer = () => {},
+}) => {
 	//sendStatus = "none" | "success" | "error"| "loading";
 	const [sendStatus, setSendStatus] = useState("none");
 
@@ -12,6 +18,7 @@ export const SubmitBtn = ({ callApi, returnCondition, postData, btnTxt }) => {
 		setSendStatus("loading");
 		callApi(postData)
 			.then((res) => {
+				setPostAnswer(res);
 				setSendStatus("success");
 				console.log("success", res);
 			})

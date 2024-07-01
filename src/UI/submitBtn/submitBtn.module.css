@@ -9,6 +9,7 @@
 	background-color: var(--secondary-col);
 	border-radius: 10px;
 	padding: 8px;
+	width: 100%;
 }
 
 .btn_submit:hover {

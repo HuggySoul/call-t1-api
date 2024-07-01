@@ -2,7 +2,6 @@ import st from "./registration.module.css";
 import { RoleSelector } from "../roleSelector/roleSelector";
 import { useReducer } from "react";
 import { signUp } from "../../api/signUp";
-import { Loading } from "../loading/loading";
 import { formReducer } from "./formReducer";
 import { userInfoReducer } from "./userInfoReducer";
 import { SubmitBtn } from "../submitBtn/submitBtn";
@@ -42,7 +41,7 @@ export const Registration = () => {
 	};
 
 	const isEmailCorrect = (email) => {
-		const re = /^\w+(-?\w+)*@?[a-zA-Z_]+?.[a-zA-Z]{2,3}$/;
+		const re = /^\w+(-?\w+)*@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/;
 		setFormState("setIsEmailIncorrect", !re.test(email), "isEmailIncorrect");
 		return re.test(email);
 	};

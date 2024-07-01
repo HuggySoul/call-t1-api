@@ -28,29 +28,7 @@
 	box-shadow: 0 0 5px 0 var(--primary-col);
 }
 
-/* .btn {
-	display: flex;
-	justify-content: flex-end;
-	width: 100%;
-	gap: 10px;
-}
-
-.btn_submit {
-	background-color: var(--secondary-col);
-	border-radius: 10px;
-	padding: 8px;
-}
-
-.btn_submit:hover {
-	scale: 1.0001;
-} */
-
 .attentionTxt {
 	color: red;
 	font-size: 14px;
 }
-
-/* .success_img {
-	width: 40px;
-	height: 40px;
-} */

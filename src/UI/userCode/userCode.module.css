@@ -14,6 +14,11 @@
 	box-shadow: 0 0 5px 0 var(--primary-col);
 }
 
+.attentionTxt {
+	color: red;
+	font-size: 14px;
+}
+
 .getCode_submit {
 	background-color: var(--secondary-col);
 	border-radius: 10px;
