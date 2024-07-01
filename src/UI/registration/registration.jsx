@@ -5,6 +5,7 @@ import { signUp } from "../../api/signUp";
 import { Loading } from "../loading/loading";
 import { formReducer } from "./formReducer";
 import { userInfoReducer } from "./userInfoReducer";
+import { SubmitBtn } from "../submitBtn/submitBtn";
 
 export const Registration = () => {
 	const [userInfo, userDispatch] = useReducer(userInfoReducer, {
@@ -17,9 +18,6 @@ export const Registration = () => {
 	const [formState, formStateDispatch] = useReducer(formReducer, {
 		isFieldEmpty: false,
 		isEmailIncorrect: false,
-		isSendingStart: false,
-		isSended: false,
-		isLoading: false,
 	});
 
 	const setUserInfo = (e, actionType, newValueName) => {
@@ -49,23 +47,8 @@ export const Registration = () => {
 		return re.test(email);
 	};
 
-	const submitForm = () => {
-		if (isFieldEmpty(userInfo) || !isEmailCorrect(userInfo.email)) return;
-
-		setFormState("setIsSendingStart", true, "isSendingStart");
-		setFormState("setIsLoading", true, "isLoading");
-		signUp(userInfo)
-			.then((res) => {
-				setFormState("setIsSended", true, "isSended");
-				setFormState("setIsLoading", false, "isLoading");
-				setFormState("setIsSendingStart", false, "isSendingStart");
-
-				console.log("success", res);
-			})
-			.catch((err) => {
-				setFormState("setIsLoading", false, "isLoading");
-				console.log(err);
-			});
+	const submitBunCondition = () => {
+		return isFieldEmpty(userInfo) || !isEmailCorrect(userInfo.email);
 	};
 
 	return (
@@ -98,22 +81,12 @@ export const Registration = () => {
 			</fieldset>
 			<RoleSelector setRole={setUserInfo} />
 			{formState.isFieldEmpty && <p className={st.attentionTxt}>*Заполните все поля</p>}
-			<div className={st.btn}>
-				<button onClick={() => submitForm()} className={st.btn_submit}>
-					<p>Записаться</p>
-				</button>
-				{formState.isLoading && <Loading />}
-				{formState.isSended && (
-					<img className={st.success_img} src="./success.svg" alt="Успешная операция" />
-				)}
-				{formState.isSendingStart && !formState.isSended && (
-					<img
-						className={st.success_img}
-						src="./unsuccess.svg"
-						alt="Неуспешная операция"
-					/>
-				)}
-			</div>
+			<SubmitBtn
+				callApi={signUp}
+				postData={userInfo}
+				btnTxt={"Записаться"}
+				returnCondition={submitBunCondition}
+			/>
 		</fieldset>
 	);
 };
