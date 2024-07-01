@@ -4,6 +4,7 @@ import { SubmitBtn } from "../submitBtn/submitBtn";
 import { getCode } from "../../api/getCode";
 import { setStatus } from "../../api/setStatus";
 import { codeReducer } from "./codeReducer";
+import { CodeInput } from "../codeInput/codeInput";
 export const UserCode = () => {
 	const [isEmailIncorrect, setIsEmailIncorrect] = useState(false);
 	const [codeState, codeDispatch] = useReducer(codeReducer, {
@@ -54,28 +55,8 @@ export const UserCode = () => {
 				returnCondition={() => checkEmail(codeState.email)}
 				setPostAnswer={(ans) => setCodeState("setCode", ans, "code")}
 			/>
-			<div className={st.showCode}>
-				<label htmlFor="code">
-					<p>Ваш код:</p>
-				</label>
-				<input
-					id="code"
-					type="password"
-					defaultValue={codeState.code}
-					className={`${st.getCode_emailInput} ${st.getCode_codeInput}`}
-				/>
-			</div>
-			<div className={st.showCode}>
-				<label htmlFor="token">
-					<p>Ваш токен:</p>
-				</label>
-				<input
-					id="token"
-					type="password"
-					defaultValue={codeState.token}
-					className={`${st.getCode_emailInput} ${st.getCode_codeInput}`}
-				/>
-			</div>
+			<CodeInput labelTxt={"Ваш код: "} defaultValue={codeState.code} />
+			<CodeInput labelTxt={"Ваш токен: "} defaultValue={codeState.token} />
 			<SubmitBtn
 				callApi={setStatus}
 				postData={codeState.token}

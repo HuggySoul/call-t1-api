@@ -1,0 +1,17 @@
+.showCode {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+}
+
+.codeInput {
+	border-radius: 10px;
+	background-color: white;
+	height: 40px;
+	box-shadow: 0 0 5px 0 var(--primary-col);
+	width: 100%;
+}
+
+.showCodeBtn {
+	width: 30px;
+}
