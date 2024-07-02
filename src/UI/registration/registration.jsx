@@ -5,6 +5,7 @@ import { signUp } from "../../api/signUp";
 import { formReducer } from "./formReducer";
 import { userInfoReducer } from "./userInfoReducer";
 import { SubmitBtn } from "../submitBtn/submitBtn";
+import { TxtInput } from "../txtInput/txtInput";
 
 export const Registration = () => {
 	const [userInfo, userDispatch] = useReducer(userInfoReducer, {
@@ -19,10 +20,10 @@ export const Registration = () => {
 		isEmailIncorrect: false,
 	});
 
-	const setUserInfo = (e, actionType, newValueName) => {
+	const setUserInfo = (newValue, actionType, newValueName) => {
 		userDispatch({
 			type: actionType,
-			[newValueName]: e.target.value,
+			[newValueName]: newValue,
 		});
 	};
 
@@ -56,23 +57,23 @@ export const Registration = () => {
 				<h2>Записаться в таблицу кандидатов</h2>
 			</legend>
 			<fieldset className={st.inputBlock}>
-				<input
-					onChange={(e) => setUserInfo(e, "setFirstName", "newFirstName")}
-					type="text"
-					placeholder="Ваше имя"
-					className={st.inputBlock_userInput}
+				<TxtInput
+					labelTxt={"Ваше имя"}
+					setter={setUserInfo}
+					actionType={"setFirstName"}
+					newValueName={"newFirstName"}
 				/>
-				<input
-					onChange={(e) => setUserInfo(e, "setLastName", "newLastName")}
-					type="text"
-					placeholder="Ваша фамилия"
-					className={st.inputBlock_userInput}
+				<TxtInput
+					labelTxt={"Ваша фамилия"}
+					setter={setUserInfo}
+					actionType={"setLastName"}
+					newValueName={"newLastName"}
 				/>
-				<input
-					onChange={(e) => setUserInfo(e, "setEmail", "newEmail")}
-					type="text"
-					placeholder="Ваш email"
-					className={st.inputBlock_userInput}
+				<TxtInput
+					labelTxt={"Ваш email"}
+					setter={setUserInfo}
+					actionType={"setEmail"}
+					newValueName={"newEmail"}
 				/>
 				{formState.isEmailIncorrect && (
 					<p className={st.attentionTxt}>*Некорректный формат email</p>

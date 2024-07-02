@@ -5,6 +5,7 @@ import { getCode } from "../../api/getCode";
 import { setStatus } from "../../api/setStatus";
 import { codeReducer } from "./codeReducer";
 import { CodeInput } from "../codeInput/codeInput";
+import { TxtInput } from "../txtInput/txtInput";
 export const UserCode = () => {
 	const [isEmailIncorrect, setIsEmailIncorrect] = useState(false);
 	const [codeState, codeDispatch] = useReducer(codeReducer, {
@@ -17,7 +18,7 @@ export const UserCode = () => {
 		if (codeState.code) createToken(codeState.email, codeState.code);
 	}, [codeState.code]);
 
-	const setCodeState = (actionType, newValue, newValueName) => {
+	const setCodeState = (newValue, actionType, newValueName) => {
 		codeDispatch({
 			type: actionType,
 			[newValueName]: newValue,
@@ -27,13 +28,13 @@ export const UserCode = () => {
 	const checkEmail = (email) => {
 		const re = /^\w+(-?\w+)*@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/;
 		const isCorrect = re.test(email);
-
+		console.log(email);
 		setIsEmailIncorrect(!isCorrect);
 		return !isCorrect;
 	};
 
 	const createToken = (email, code) => {
-		setCodeState("setToken", btoa(`${email}:${code}`), "token");
+		setCodeState(btoa(`${email}:${code}`), "setToken", "token");
 	};
 
 	return (
@@ -41,11 +42,11 @@ export const UserCode = () => {
 			<legend>
 				<h2>Установить статус записи</h2>
 			</legend>
-			<input
-				onChange={(e) => setCodeState("setEmail", e.target.value, "email")}
-				type="text"
-				placeholder="Ваш email"
-				className={st.getCode_emailInput}
+			<TxtInput
+				labelTxt={"Ваш email"}
+				setter={setCodeState}
+				actionType={"setEmail"}
+				newValueName={"email"}
 			/>
 			{isEmailIncorrect && <p className={st.attentionTxt}>*Некорректный формат email</p>}
 			<SubmitBtn
@@ -53,7 +54,7 @@ export const UserCode = () => {
 				postData={codeState.email}
 				btnTxt={"Получить код"}
 				returnCondition={() => checkEmail(codeState.email)}
-				setPostAnswer={(ans) => setCodeState("setCode", ans, "code")}
+				setPostAnswer={(ans) => setCodeState(ans, "setCode", "code")}
 			/>
 			<CodeInput labelTxt={"Ваш код: "} receivedValue={codeState.code} />
 			<CodeInput labelTxt={"Ваш токен: "} receivedValue={codeState.token} />

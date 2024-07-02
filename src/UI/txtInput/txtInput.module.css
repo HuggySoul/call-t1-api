@@ -1,0 +1,36 @@
+.inputGroup {
+	position: relative;
+	width: 100%;
+}
+
+.inputGroup_placeholder {
+	position: absolute;
+	top: 15px;
+	left: 8px;
+	padding: 0px 5px;
+	transition: 0.3s;
+	pointer-events: none;
+}
+
+.inputGroup_txt {
+	font-size: 14px;
+}
+
+.inputGroup_input {
+	/* padding: 8px; */
+	width: 100%;
+	border: 1px solid var(--primary-col);
+	background-color: #fff;
+	border-radius: 10px;
+	height: 45px;
+	box-shadow: 0 0 5px 0 var(--primary-col);
+}
+
+.inputGroup_input:focus + .inputGroup_placeholder,
+.inputGroup_input:valid + .inputGroup_placeholder {
+	top: -10px;
+	left: 0.5px;
+	background-color: #fff;
+	border-radius: 5px 8px 0 0;
+	padding-top: 2px;
+}
