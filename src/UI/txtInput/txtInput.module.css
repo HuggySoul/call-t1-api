@@ -28,9 +28,9 @@
 
 .inputGroup_input:focus + .inputGroup_placeholder,
 .inputGroup_input:valid + .inputGroup_placeholder {
-	top: -10px;
+	top: -9.5px;
 	left: 0.5px;
 	background-color: #fff;
-	border-radius: 5px 8px 0 0;
+	border-radius: 8px 8px 0 0;
 	padding-top: 2px;
 }
