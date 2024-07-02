@@ -3,21 +3,6 @@ import { getRoles } from "../../api/getRoles";
 import { useEffect, useState } from "react";
 import { Loading } from "../loading/loading";
 
-// const testRoles = [
-// 	"efwefwefwe",
-// 	"wefwefwefewfwef",
-// 	"wefewfwefwef",
-// 	"wefwefwefwefwef",
-// 	"wefwefewfwefewfwef",
-// 	"wefwefwefwefwefwef",
-// 	"wefwefwefwfwef",
-// 	"wefwefwefwefwef",
-// 	"fewfwefwefwefwef",
-// 	"fewfwefwefwefwef",
-// 	"fewfwefwefwefwef",
-// 	"fewfwefwefwefwef",
-// ];
-
 export const RoleSelector = ({ setRole }) => {
 	const [roles, setRoles] = useState([]);
 
@@ -41,7 +26,7 @@ export const RoleSelector = ({ setRole }) => {
 							<label htmlFor={id}>
 								<div className={st.roles_roleCard}>
 									<input
-										onChange={(e) => setRole(e, "setRole", "newRole")}
+										onChange={(e) => setRole(e.target.value, "setRole", "newRole")}
 										type="radio"
 										id={id}
 										name="role"
