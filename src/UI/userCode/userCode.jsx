@@ -28,7 +28,6 @@ export const UserCode = () => {
 	const checkEmail = (email) => {
 		const re = /^\w+(-?\w+)*@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/;
 		const isCorrect = re.test(email);
-		console.log(email);
 		setIsEmailIncorrect(!isCorrect);
 		return !isCorrect;
 	};
@@ -56,14 +55,18 @@ export const UserCode = () => {
 				returnCondition={() => checkEmail(codeState.email)}
 				setPostAnswer={(ans) => setCodeState(ans, "setCode", "code")}
 			/>
-			<CodeInput labelTxt={"Ваш код: "} receivedValue={codeState.code} />
-			<CodeInput labelTxt={"Ваш токен: "} receivedValue={codeState.token} />
-			<SubmitBtn
-				callApi={setStatus}
-				postData={codeState.token}
-				btnTxt={"Установить статус записи"}
-				returnCondition={() => !Boolean(codeState.token)}
-			/>
+			{Boolean(codeState.code) && (
+				<>
+					<CodeInput labelTxt={"Ваш код: "} receivedValue={codeState.code} />
+					<CodeInput labelTxt={"Ваш токен: "} receivedValue={codeState.token} />
+					<SubmitBtn
+						callApi={setStatus}
+						postData={codeState.token}
+						btnTxt={"Установить статус записи"}
+						returnCondition={() => !Boolean(codeState.token)}
+					/>
+				</>
+			)}
 		</fieldset>
 	);
 };

@@ -14,7 +14,7 @@ export const SubmitBtn = ({
 
 	const submitForm = () => {
 		if (returnCondition()) return;
-
+		console.log(postData);
 		setSendStatus("loading");
 		callApi(postData)
 			.then((res) => {

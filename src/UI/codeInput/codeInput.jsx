@@ -27,6 +27,7 @@ export const CodeInput = ({ receivedValue, labelTxt }) => {
 					value={value}
 					onChange={handleChange}
 					className={st.codeInput}
+					readOnly
 				/>
 				<button onClick={changeInputType} className={st.showCodeBtn}>
 					{inputType === "password" ? (
