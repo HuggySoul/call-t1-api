@@ -55,8 +55,8 @@ export const UserCode = () => {
 				returnCondition={() => checkEmail(codeState.email)}
 				setPostAnswer={(ans) => setCodeState("setCode", ans, "code")}
 			/>
-			<CodeInput labelTxt={"Ваш код: "} defaultValue={codeState.code} />
-			<CodeInput labelTxt={"Ваш токен: "} defaultValue={codeState.token} />
+			<CodeInput labelTxt={"Ваш код: "} receivedValue={codeState.code} />
+			<CodeInput labelTxt={"Ваш токен: "} receivedValue={codeState.token} />
 			<SubmitBtn
 				callApi={setStatus}
 				postData={codeState.token}

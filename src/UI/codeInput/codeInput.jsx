@@ -1,23 +1,31 @@
 import st from "./codeInput.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const CodeInput = ({ defaultValue, labelTxt }) => {
+export const CodeInput = ({ receivedValue, labelTxt }) => {
 	const [inputType, setInputType] = useState("password");
+	const [value, setValue] = useState("");
+	useEffect(() => {
+		setValue(receivedValue);
+	}, [receivedValue]);
 
 	const changeInputType = () => {
 		inputType === "password" ? setInputType("text") : setInputType("password");
 	};
 
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
+
 	return (
 		<>
-			<label htmlFor="code">
+			<label>
 				<p>{labelTxt}</p>
 			</label>
 			<div className={st.showCode}>
 				<input
-					id="code"
 					type={inputType}
-					defaultValue={defaultValue}
+					value={value}
+					onChange={handleChange}
 					className={st.codeInput}
 				/>
 				<button onClick={changeInputType} className={st.showCodeBtn}>
