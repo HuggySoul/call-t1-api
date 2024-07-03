@@ -27,7 +27,7 @@ export const Registration = () => {
 		});
 	};
 
-	const setFormState = (actionType, newValue, newValueName) => {
+	const setFormState = (newValue, actionType, newValueName) => {
 		formStateDispatch({
 			type: actionType,
 			[newValueName]: newValue,
@@ -37,13 +37,13 @@ export const Registration = () => {
 	const isFieldEmpty = (userInfo) => {
 		const isFieldsFilled =
 			userInfo.first_name && userInfo.last_name && userInfo.email && userInfo.role;
-		setFormState("setIsFieldEmpty", !isFieldsFilled, "isFieldEmpty");
+		setFormState(!isFieldsFilled, "setIsFieldEmpty", "isFieldEmpty");
 		return !isFieldsFilled;
 	};
 
 	const isEmailCorrect = (email) => {
 		const re = /^\w+(-?\w+)*@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/;
-		setFormState("setIsEmailIncorrect", !re.test(email), "isEmailIncorrect");
+		setFormState(!re.test(email), "setIsEmailIncorrect", "isEmailIncorrect");
 		return re.test(email);
 	};
 

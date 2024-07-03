@@ -14,13 +14,11 @@ export const SubmitBtn = ({
 
 	const submitForm = () => {
 		if (returnCondition()) return;
-		console.log(postData);
 		setSendStatus("loading");
 		callApi(postData)
 			.then((res) => {
 				setPostAnswer(res);
 				setSendStatus("success");
-				console.log("success", res);
 			})
 			.catch((err) => {
 				setSendStatus("error");
