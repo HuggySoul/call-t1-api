@@ -27,7 +27,7 @@ export const SubmitBtn = ({
 	};
 	return (
 		<div className={st.btn}>
-			<button onClick={() => submitForm()} className={st.btn_submit}>
+			<button onClick={submitForm} className={st.btn_submit}>
 				<p>{btnTxt}</p>
 			</button>
 			{sendStatus === "loading" && <Loading />}

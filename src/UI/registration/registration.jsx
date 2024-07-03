@@ -35,20 +35,20 @@ export const Registration = () => {
 	};
 
 	const isFieldEmpty = (userInfo) => {
-		const isFieldsFilled =
-			userInfo.first_name && userInfo.last_name && userInfo.email && userInfo.role;
-		setFormState(!isFieldsFilled, "setIsFieldEmpty", "isFieldEmpty");
-		return !isFieldsFilled;
+		const isFieldsEmpty =
+			!userInfo.first_name || !userInfo.last_name || !userInfo.email || !userInfo.role;
+		setFormState(isFieldsEmpty, "setIsFieldEmpty", "isFieldEmpty");
+		return isFieldsEmpty;
 	};
 
-	const isEmailCorrect = (email) => {
+	const isEmailInCorrect = (email) => {
 		const re = /^\w+(-?\w+)*@[a-zA-Z_]+?.[a-zA-Z]{2,3}$/;
 		setFormState(!re.test(email), "setIsEmailIncorrect", "isEmailIncorrect");
-		return re.test(email);
+		return !re.test(email);
 	};
 
 	const submitBunCondition = () => {
-		return isFieldEmpty(userInfo) || !isEmailCorrect(userInfo.email);
+		return isFieldEmpty(userInfo) || isEmailInCorrect(userInfo.email);
 	};
 
 	return (
