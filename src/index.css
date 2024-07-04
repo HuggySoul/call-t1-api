@@ -4,7 +4,6 @@
 :root {
 	--primary-col: rgba(0, 0, 0, 0.4);
 	--secondary-col: rgba(233, 77, 42, 0.6);
-	/* --attention-col: #E94D2A; */
 	--text-col: #ffff;
 	--form-back-col: linear-gradient(
 		to top,
@@ -91,6 +90,16 @@ svg {
 
 address {
 	font-style: normal;
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+	border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: darkgrey;
+	outline: 1px solid slategrey;
 }
 
 /* Form */
